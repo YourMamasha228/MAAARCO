@@ -1,0 +1,13 @@
+import { addUser, listUsers } from './userManager.js';
+import { addBook, listBooks } from './bookManager.js';
+import { loanBook, returnBook } from './loanManager.js';
+const u1 = addUser("Аня");
+const u2 = addUser("Иван");
+addBook("1984", "Оруэлл");
+addBook("Мастер и Маргарита", "Булгаков");
+listBooks();
+loanBook(u1.id, 1);
+listBooks();
+returnBook(1);
+listBooks();
+listUsers();

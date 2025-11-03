@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Первый параграф</p>
+    <p>Второй параграф</p>
+    <p>Третий параграф</p>
+    
+    <button onclick="countParagraphs()">Посчитать параграфы</button>
+
+    <script>
+        function countParagraphs() {
+            // Получаем все элементы <p>
+            const paragraphs = document.getElementsByTagName('p');
+            
+            // Выводим количество в alert
+            alert(`На странице ${paragraphs.length} параграфов`);
+        }
+    </script>
+</body>
+</html>

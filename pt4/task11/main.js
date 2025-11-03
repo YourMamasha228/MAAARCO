@@ -1,0 +1,16 @@
+import { addUser } from './userManager.js';
+import { addCourse } from './courseManager.js';
+import { addLesson } from './lessonManager.js';
+import { markAttendance, showAttendance, getAttendanceStats } from './attendanceManager.js';
+const s1 = addUser("Андрей");
+const s2 = addUser("Оля");
+const t1 = addUser("Преподаватель", "teacher");
+const c1 = addCourse("JavaScript");
+const l1 = addLesson(c1.id, "Введение");
+const l2 = addLesson(c1.id, "Функции");
+markAttendance(s1.id, l1.id, true);
+markAttendance(s2.id, l1.id, false);
+markAttendance(s1.id, l2.id, true);
+markAttendance(s2.id, l2.id, true);
+showAttendance(c1.id);
+getAttendanceStats(c1.id);

@@ -1,0 +1,10 @@
+import { addUser } from './userManager.js';
+import { createAccount, getAllAccounts } from './accountManager.js';
+import { transfer, getAllTransactions } from './transactionManager.js';
+const u1 = addUser("Маша");
+const u2 = addUser("Олег");
+const acc1 = createAccount(u1.id, 1000);
+const acc2 = createAccount(u2.id, 500);
+transfer(acc1.id, acc2.id, 300);
+console.log("Счета:", getAllAccounts());
+console.log("Транзакции:", getAllTransactions());
