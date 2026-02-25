@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid CSS - 5 макетов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .layout {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .layout h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 1.8em;
+            border-bottom: 3px solid #e10600;
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .item {
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            min-height: 100px;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+        }
+
+        /* МАКЕТ 1 - как на скриншоте */
+        .layout-1 .grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 120px;
+        }
+
+        .layout-1 .item-1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+
+        .layout-1 .item-2 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #4ECDC4 0%, #45B7D1 100%);
+        }
+
+        .layout-1 .item-3 {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #96CEB4 0%, #88B7A0 100%);
+        }
+
+        .layout-1 .item-4 {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, #FFEAA7 0%, #FFD93D 100%);
+        }
+
+        .layout-1 .item-5 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #FF9999 0%, #FF6B6B 100%);
+        }
+
+        .layout-1 .item-6 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #A8E6CF 0%, #90D4B4 100%);
+        }
+
+        /* МАКЕТ 2 - как на скриншоте */
+        .layout-2 .grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 130px;
+        }
+
+        .layout-2 .item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #845EC2 0%, #D65F8C 100%);
+        }
+
+        .layout-2 .item-2 {
+            grid-column: 2 / 4;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #FF6F91 0%, #FF9671 100%);
+        }
+
+        .layout-2 .item-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, #D5AAFF 0%, #B28BFF 100%);
+        }
+
+        .layout-2 .item-4 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, #FFC75F 0%, #F9F871 100%);
+        }
+
+        .layout-2 .item-5 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #008F7A 0%, #00B8A9 100%);
+        }
+
+        .layout-2 .item-6 {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #F2918C 0%, #F4A698 100%);
+        }
+
+        /* МАКЕТ 3 - как на скриншоте (Команды Ф1) */
+        .layout-3 .grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 120px;
+        }
+
+        .layout-3 .item-1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #00D2BE 0%, #009688 100%);
+        }
+
+        .layout-3 .item-2 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #DC0000 0%, #B30000 100%);
+        }
+
+        .layout-3 .item-3 {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #1E41FF 0%, #0033A0 100%);
+        }
+
+        .layout-3 .item-4 {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, #00A0DE 0%, #0077B6 100%);
+        }
+
+        .layout-3 .item-5 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #B6B6B4 0%, #808080 100%);
+        }
+
+        .layout-3 .item-6 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #2B4562 0%, #1C2E44 100%);
+        }
+
+        /* МАКЕТ 4 - как на скриншоте */
+        .layout-4 .grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 120px;
+        }
+
+        .layout-4 .item-1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);
+        }
+
+        .layout-4 .item-2 {
+            grid-column: 3 / 5;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #E74C3C 0%, #F39C12 100%);
+        }
+
+        .layout-4 .item-3 {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, #27AE60 0%, #2ECC71 100%);
+        }
+
+        .layout-4 .item-4 {
+            grid-column: 2 / 4;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%);
+        }
+
+        .layout-4 .item-5 {
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%);
+        }
+
+        .layout-4 .item-6 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #1ABC9C 0%, #16A085 100%);
+        }
+
+        .layout-4 .item-7 {
+            grid-column: 3 / 5;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #34495E 0%, #2C3E50 100%);
+        }
+
+        /* МАКЕТ 5 - как на скриншоте */
+        .layout-5 .grid {
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 110px;
+        }
+
+        .layout-5 .item-1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+        }
+
+        .layout-5 .item-2 {
+            grid-column: 3 / 5;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%);
+        }
+
+        .layout-5 .item-3 {
+            grid-column: 5 / 6;
+            grid-row: 1 / 2;
+            background: linear-gradient(135deg, #F7971E 0%, #FFD200 100%);
+        }
+
+        .layout-5 .item-4 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, #56AB2F 0%, #A8E063 100%);
+        }
+
+        .layout-5 .item-5 {
+            grid-column: 4 / 6;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, #EC6F66 0%, #F3A183 100%);
+        }
+
+        .layout-5 .item-6 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #7474BF 0%, #348AC7 100%);
+        }
+
+        .layout-5 .item-7 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #EB5757 0%, #F2994A 100%);
+        }
+
+        .layout-5 .item-8 {
+            grid-column: 4 / 6;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #005C97 0%, #363795 100%);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                gap: 10px;
+            }
+            
+            .item {
+                padding: 15px;
+                font-size: 1em;
+            }
+            
+            .emoji {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏎️ 5 макетов Grid CSS</h1>
+
+        <!-- Макет 1 -->
+        <section class="layout layout-1">
+            <h2>Макет №1</h2>
+            <div class="grid">
+                <div class="item item-1">
+                    <span class="emoji">🎮</span>
+                    <span>GAME</span>
+                </div>
+                <div class="item item-2">
+                    <span class="emoji">🎵</span>
+                    <span>MUSIC</span>
+                </div>
+                <div class="item item-3">
+                    <span class="emoji">🎬</span>
+                    <span>FILM</span>
+                </div>
+                <div class="item item-4">
+                    <span class="emoji">📱</span>
+                    <span>APPS</span>
+                </div>
+                <div class="item item-5">
+                    <span class="emoji">📸</span>
+                    <span>PHOTO</span>
+                </div>
+                <div class="item item-6">
+                    <span class="emoji">💻</span>
+                    <span>CODE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Макет 2 -->
+        <section class="layout layout-2">
+            <h2>Макет №2</h2>
+            <div class="grid">
+                <div class="item item-1">
+                    <span class="emoji">📊</span>
+                    <span>АНАЛИТИКА</span>
+                </div>
+                <div class="item item-2">
+                    <span class="emoji">📈</span>
+                    <span>РОСТ</span>
+                </div>
+                <div class="item item-3">
+                    <span class="emoji">🎯</span>
+                    <span>ЦЕЛИ</span>
+                </div>
+                <div class="item item-4">
+                    <span class="emoji">💡</span>
+                    <span>ИДЕИ</span>
+                </div>
+                <div class="item item-5">
+                    <span class="emoji">⚡</span>
+                    <span>СКОРОСТЬ</span>
+                </div>
+                <div class="item item-6">
+                    <span class="emoji">🔒</span>
+                    <span>БЕЗОПАСНОСТЬ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Макет 3 - Команды Ф1 -->
+        <section class="layout layout-3">
+            <h2>Макет №3 - Команды Формулы-1</h2>
+            <div class="grid">
+                <div class="item item-1">
+                    <span class="emoji">🧡</span>
+                    <span>MCLAREN</span>
+                    <span style="font-size: 0.8em;">Norris/Piastri</span>
+                </div>
+                <div class="item item-2">
+                    <span class="emoji">❤️</span>
+                    <span>FERARI</span>
+                    <span style="font-size: 0.8em;">Leclerc/Sainz</span>
+                </div>
+                <div class="item item-3">
+                    <span class="emoji">💙</span>
+                    <span>RED BULL</span>
+                    <span style="font-size: 0.8em;">Verstappen/Perez</span>
+                </div>
+                <div class="item item-4">
+                    <span class="emoji">💚</span>
+                    <span>MERCEDES</span>
+                    <span style="font-size: 0.8em;">Hamilton/Russell</span>
+                </div>
+                <div class="item item-5">
+                    <span class="emoji">🤍</span>
+                    <span>HAAS</span>
+                    <span style="font-size: 0.8em;">Magnussen/Hülkenberg</span>
+                </div>
+                <div class="item item-6">
+                    <span class="emoji">💙</span>
+                    <span>WILLIAMS</span>
+                    <span style="font-size: 0.8em;">Albon/Colapinto</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Макет 4 -->
+        <section class="layout layout-4">
+            <h2>Макет №4</h2>
+            <div class="grid">
+                <div class="item item-1">
+                    <span class="emoji">👥</span>
+                    <span>1,234</span>
+                </div>
+                <div class="item item-2">
+                    <span class="emoji">💰</span>
+                    <span>$45K</span>
+                </div>
+                <div class="item item-3">
+                    <span class="emoji">📦</span>
+                    <span>567</span>
+                </div>
+                <div class="item item-4">
+                    <span class="emoji">📉</span>
+                    <span>+23%</span>
+                </div>
+                <div class="item item-5">
+                    <span class="emoji">⏱️</span>
+                    <span>2.4с</span>
+                </div>
+                <div class="item item-6">
+                    <span class="emoji">📋</span>
+                    <span>89%</span>
+                </div>
+                <div class="item item-7">
+                    <span class="emoji">🎯</span>
+                    <span>ГОТОВО</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Макет 5 -->
+        <section class="layout layout-5">
+            <h2>Макет №5</h2>
+            <div class="grid">
+                <div class="item item-1">
+                    <span class="emoji">⭐</span>
+                    <span>ОСНОВНОЕ</span>
+                </div>
+                <div class="item item-2">
+                    <span class="emoji">🔥</span>
+                    <span>ХИТЫ</span>
+                </div>
+                <div class="item item-3">
+                    <span class="emoji">✨</span>
+                    <span>NEW</span>
+                </div>
+                <div class="item item-4">
+                    <span class="emoji">💎</span>
+                    <span>ПРЕМИУМ</span>
+                </div>
+                <div class="item item-5">
+                    <span class="emoji">🎁</span>
+                    <span>АКЦИИ</span>
+                </div>
+                <div class="item item-6">
+                    <span class="emoji">📞</span>
+                    <span>ЧАТ</span>
+                </div>
+                <div class="item item-7">
+                    <span class="emoji">📧</span>
+                    <span>ПОЧТА</span>
+                </div>
+                <div class="item item-8">
+                    <span class="emoji">⚙️</span>
+                    <span>НАСТРОЙКИ</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
