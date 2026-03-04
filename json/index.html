@@ -2,458 +2,115 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>JSON Конвертер - РАБОЧАЯ ВЕРСИЯ</title>
-    <style>
-        /* Базовые стили */
-        body { 
-            font-family: Arial, sans-serif;
-            max-width: 1200px; 
-            margin: 20px auto; 
-            padding: 0 20px; 
-            background: #f5f5f5; 
-        }
-
-        h1 { 
-            text-align: center; 
-            color: #333; 
-        }
-
-        /* Стили для всех зон */
-        .zone { 
-            background: white; 
-            padding: 20px; 
-            margin: 20px 0; 
-            border-radius: 10px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-        }
-
-        .zone h2 { 
-            margin-top: 0; 
-            color: #2c3e50; 
-            border-bottom: 2px solid #4CAF50; 
-            padding-bottom: 10px; 
-        }
-
-        /* Строки формы */
-        .form-row { 
-            display: flex; 
-            align-items: center; 
-            margin: 10px 0; 
-        }
-
-        .form-row label { 
-            width: 120px; 
-            font-weight: bold; 
-        }
-
-        /* Поля ввода */
-        input[type="text"], 
-        input[type="email"] { 
-            flex: 1; 
-            padding: 8px; 
-            border: 1px solid #ddd; 
-            border-radius: 4px; 
-        }
-
-        input[type="checkbox"] { 
-            width: 20px; 
-            height: 20px; 
-        }
-
-        /* Текстовые поля */
-        textarea { 
-            width: 100%; 
-            height: 150px; 
-            margin: 10px 0; 
-            font-family: monospace; 
-            border: 1px solid #ddd; 
-            border-radius: 4px; 
-            padding: 10px;
-        }
-
-        /* Кнопки */
-        button { 
-            margin: 5px; 
-            padding: 10px 20px; 
-            cursor: pointer; 
-            background: #4CAF50; 
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-            font-size: 14px;
-        }
-
-        button:hover { 
-            background: #45a049; 
-        }
-
-        /* Группа кнопок */
-        .button-group {
-            margin: 10px 0;
-        }
-
-        /* Блок ошибки */
-        .error { 
-            color: red; 
-            padding: 10px; 
-            background: #ffeeee; 
-            border-radius: 4px; 
-            margin: 10px 0;
-        }
-
-        /* Блок результата */
-        .success { 
-            padding: 10px; 
-            background: #f0f0f0; 
-            border-radius: 4px; 
-            white-space: pre-wrap; 
-            font-family: monospace;
-        }
-
-        /* Чекбоксы фильтра */
-        .checkbox-group { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 10px; 
-            margin: 10px 0; 
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 4px;
-        }
-
-        .checkbox-group label { 
-            margin-right: 15px; 
-        }
-
-        /* Блок наблюдений */
-        #observations { 
-            margin-top: 10px; 
-            padding: 10px; 
-            background: #fff3cd; 
-            border-radius: 4px; 
-        }
-
-        /* Превью объекта */
-        #objectPreview { 
-            background: #1e293b; 
-            color: #bbd8ff; 
-            padding: 10px; 
-            border-radius: 4px; 
-            margin-top: 10px;
-        }
-
-        /* Выпадающий список */
-        select {
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        /* Номера зон */
-        .zone-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .zone-number {
-            background: #4CAF50;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-    </style>
+    <title>JSON пример</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>🔄 JSON Конвертер профиля</h1>
-
-    <!-- ===== ЗОНА 1: ИМПОРТ ===== -->
-    <div class="zone">
-        <div class="zone-header">
-            <span class="zone-number">1</span>
-            <h2>Импорт JSON</h2>
+    <div class="page">
+        <h1>JSON.stringify и JSON.parse</h1>
+        
+        <!-- Зона А: Профиль -->
+        <div class="block">
+            <h2>А. Профиль (ввод данных)</h2>
+            
+            <div class="field">
+                <label>Имя (userName):</label>
+                <input type="text" id="userName" value="Анна">
+            </div>
+            
+            <div class="field">
+                <label>Возраст (age):</label>
+                <input type="text" id="age" value="20">
+            </div>
+            
+            <div class="field">
+                <label>Студент? (isStudent):</label>
+                <input type="checkbox" id="isStudent" checked>
+            </div>
+            
+            <div class="field">
+                <label>Город (city):</label>
+                <input type="text" id="city" value="Москва">
+            </div>
+            
+            <div class="field">
+                <label>Группа (group):</label>
+                <input type="text" id="group" value="ИС-21">
+            </div>
+            
+            <div class="field">
+                <label>Email:</label>
+                <input type="text" id="email" value="anna@mail.ru">
+            </div>
+            
+            <div class="field">
+                <label>Теги (через запятую):</label>
+                <input type="text" id="tags" value="js,html,css">
+            </div>
+            
+            <button id="buildBtn">Собрать объект</button>
+            <button id="problemBtn">Добавить проблемные поля</button>
+            
+            <div class="result-box">
+                <p><b>Текущий объект:</b></p>
+                <pre id="objectShow">{}</pre>
+            </div>
         </div>
         
-        <textarea id="jsonInput" placeholder="Вставьте JSON сюда...">{"userName":"Тест","age":20,"isStudent":true}</textarea>
-        
-        <div class="button-group">
-            <button onclick="importJSON()">📥 Импортировать</button>
-            <button onclick="clearImport()">🗑️ Очистить</button>
+        <!-- Зона B: Экспорт -->
+        <div class="block">
+            <h2>Б. Экспорт (stringify)</h2>
+            
+            <div class="field">
+                <label>Пробелы (space):</label>
+                <select id="spaceSelect">
+                    <option value="0">0 - без пробелов</option>
+                    <option value="2" selected>2 - с отступами</option>
+                    <option value="4">4 - большие отступы</option>
+                </select>
+            </div>
+            
+            <div class="check-group">
+                <p><b>Какие ключи оставить:</b></p>
+                <label><input type="checkbox" class="keyCheck" value="id" checked> id</label>
+                <label><input type="checkbox" class="keyCheck" value="userName" checked> userName</label>
+                <label><input type="checkbox" class="keyCheck" value="age" checked> age</label>
+                <label><input type="checkbox" class="keyCheck" value="isStudent" checked> isStudent</label>
+                <label><input type="checkbox" class="keyCheck" value="tags" checked> tags</label>
+                <label><input type="checkbox" class="keyCheck" value="profile" checked> profile</label>
+                <label><input type="checkbox" class="keyCheck" value="createdAt" checked> createdAt</label>
+            </div>
+            
+            <div style="margin: 10px 0;">
+                <button id="exportSimple">Обычный экспорт</button>
+                <button id="exportArray">Экспорт (фильтр ключей)</button>
+                <button id="exportFunc">Экспорт (функция)</button>
+            </div>
+            
+            <label>Результат:</label>
+            <textarea id="jsonOut" rows="6" readonly></textarea>
         </div>
         
-        <div id="importError" class="error" style="display: none;"></div>
-        <div id="importResult" class="success">Ожидание импорта...</div>
+        <!-- Зона C: Импорт -->
+        <div class="block">
+            <h2>В. Импорт (parse)</h2>
+            
+            <label>Введите JSON:</label>
+            <textarea id="jsonIn" rows="6"></textarea>
+            
+            <button id="importBtn">Импортировать</button>
+            
+            <div class="result-box">
+                <p><b>Результат:</b></p>
+                <pre id="importShow">—</pre>
+            </div>
+            
+            <div class="error" id="errorBox" style="display: none;">
+                <p>Ошибка: <span id="errorMsg"></span></p>
+            </div>
+        </div>
     </div>
-
-    <!-- ===== ЗОНА 2: ЭКСПОРТ ===== -->
-    <div class="zone">
-        <div class="zone-header">
-            <span class="zone-number">2</span>
-            <h2>Экспорт JSON</h2>
-        </div>
-
-        <div style="margin: 10px 0;">
-            <label>Отступ: </label>
-            <select id="spaceSelect">
-                <option value="0">0</option>
-                <option value="2" selected>2</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-
-        <div style="margin: 10px 0;">
-            <strong>Ключи для экспорта:</strong>
-            <div class="checkbox-group" id="keyFilters"></div>
-        </div>
-
-        <div class="button-group">
-            <button onclick="exportNormal()">📤 Обычный экспорт</button>
-            <button onclick="exportWithKeys()">🔑 Экспорт с фильтром</button>
-        </div>
-        
-        <textarea id="jsonOutput" placeholder="Здесь появится JSON..." readonly></textarea>
-        
-        <div id="observations">
-            <strong>Наблюдения:</strong> Добавьте проблемные поля в профиле
-        </div>
-    </div>
-
-    <!-- ===== ЗОНА 3: ПРОФИЛЬ ===== -->
-    <div class="zone">
-        <div class="zone-header">
-            <span class="zone-number">3</span>
-            <h2>Профиль</h2>
-        </div>
-
-        <div class="form-row">
-            <label>Имя:</label>
-            <input type="text" id="userName" value="Иван Петров">
-        </div>
-
-        <div class="form-row">
-            <label>Возраст:</label>
-            <input type="text" id="age" value="25">
-        </div>
-
-        <div class="form-row">
-            <label>Студент:</label>
-            <input type="checkbox" id="isStudent" checked>
-        </div>
-
-        <div class="form-row">
-            <label>Город:</label>
-            <input type="text" id="city" value="Москва">
-        </div>
-
-        <div class="form-row">
-            <label>Группа:</label>
-            <input type="text" id="group" value="Разработчики">
-        </div>
-
-        <div class="form-row">
-            <label>Email:</label>
-            <input type="email" id="email" value="ivan@mail.ru">
-        </div>
-
-        <div class="form-row">
-            <label>Теги:</label>
-            <input type="text" id="tags" value="js, json, html">
-        </div>
-
-        <div style="margin: 15px 0;">
-            <label>
-                <input type="checkbox" id="addProblematic">
-                ⚠️ Добавить проблемные поля (undefined, NaN, Date, функция)
-            </label>
-        </div>
-
-        <div class="button-group">
-            <button onclick="buildObject()">📦 Собрать объект</button>
-            <button onclick="resetForm()">🔄 Сбросить</button>
-            <button onclick="fillExample()">📋 Пример</button>
-        </div>
-
-        <div id="objectPreview" class="success">Нажмите "Собрать объект"</div>
-    </div>
-
-    <script>
-        // ===============================================
-        // ВЕСЬ JAVASCRIPT ЗДЕСЬ - ВСЁ РАБОТАЕТ!
-        // ===============================================
-
-        // Текущий объект
-        let currentObject = null;
-
-        // ===== СБОРКА ОБЪЕКТА =====
-        function buildObject() {
-            const obj = {
-                id: Date.now(),
-                userName: document.getElementById('userName').value,
-                age: document.getElementById('age').value,
-                isStudent: document.getElementById('isStudent').checked,
-                tags: document.getElementById('tags').value,
-                profile: {
-                    city: document.getElementById('city').value,
-                    group: document.getElementById('group').value,
-                    contacts: {
-                        email: document.getElementById('email').value
-                    }
-                }
-            };
-
-            // Проблемные поля
-            if (document.getElementById('addProblematic').checked) {
-                obj.temp = undefined;
-                obj.calc = function() { console.log('функция'); };
-                obj.score = NaN;
-                obj.inf = Infinity;
-                obj.createdAt = new Date();
-            }
-
-            currentObject = obj;
-            
-            // Показываем объект
-            document.getElementById('objectPreview').innerHTML = 
-                '<strong>Текущий объект:</strong><br>' + 
-                JSON.stringify(obj, (k, v) => typeof v === 'function' ? 'функция' : v, 2);
-            
-            // Обновляем чекбоксы
-            updateCheckboxes(obj);
-        }
-
-        // ===== ОБНОВЛЕНИЕ ЧЕКБОКСОВ =====
-        function updateCheckboxes(obj) {
-            const container = document.getElementById('keyFilters');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            for (let key in obj) {
-                container.innerHTML += `
-                    <label>
-                        <input type="checkbox" value="${key}" checked> ${key}
-                    </label>
-                `;
-            }
-        }
-
-        // ===== ОБЫЧНЫЙ ЭКСПОРТ =====
-        function exportNormal() {
-            if (!currentObject) {
-                alert('Сначала соберите объект!');
-                return;
-            }
-            
-            const space = Number(document.getElementById('spaceSelect').value);
-            const json = JSON.stringify(currentObject, null, space);
-            document.getElementById('jsonOutput').value = json;
-            showObservations(currentObject);
-        }
-
-        // ===== ЭКСПОРТ С ФИЛЬТРОМ =====
-        function exportWithKeys() {
-            if (!currentObject) {
-                alert('Сначала соберите объект!');
-                return;
-            }
-            
-            const checkboxes = document.querySelectorAll('#keyFilters input:checked');
-            const keys = Array.from(checkboxes).map(cb => cb.value);
-            
-            if (keys.length === 0) {
-                alert('Выберите хотя бы один ключ!');
-                return;
-            }
-            
-            const space = Number(document.getElementById('spaceSelect').value);
-            const json = JSON.stringify(currentObject, keys, space);
-            document.getElementById('jsonOutput').value = json;
-            showObservations(currentObject);
-        }
-
-        // ===== НАБЛЮДЕНИЯ =====
-        function showObservations(obj) {
-            const obs = document.getElementById('observations');
-            let text = '<strong>Наблюдения:</strong><br>';
-            
-            if (obj.temp === undefined && 'temp' in obj) text += '• undefined пропал из JSON<br>';
-            if (typeof obj.calc === 'function') text += '• функция пропала из JSON<br>';
-            if (typeof obj.score === 'number' && isNaN(obj.score)) text += '• NaN стал null<br>';
-            if (obj.inf === Infinity) text += '• Infinity стал null<br>';
-            if (obj.createdAt instanceof Date) text += '• Date стал строкой<br>';
-            
-            if (text === '<strong>Наблюдения:</strong><br>') {
-                text += '• проблемных полей нет';
-            }
-            
-            obs.innerHTML = text;
-        }
-
-        // ===== ИМПОРТ =====
-        function importJSON() {
-            const jsonText = document.getElementById('jsonInput').value;
-            const errorDiv = document.getElementById('importError');
-            const resultDiv = document.getElementById('importResult');
-            
-            errorDiv.style.display = 'none';
-            
-            try {
-                const obj = JSON.parse(jsonText);
-                resultDiv.innerHTML = '<strong>Успех! Объект:</strong><br>' + 
-                    JSON.stringify(obj, null, 2);
-            } catch (error) {
-                errorDiv.style.display = 'block';
-                errorDiv.innerHTML = '❌ Ошибка: ' + error.message;
-                resultDiv.innerHTML = 'Ошибка парсинга';
-            }
-        }
-
-        // ===== ОЧИСТКА ИМПОРТА =====
-        function clearImport() {
-            document.getElementById('jsonInput').value = '';
-            document.getElementById('importError').style.display = 'none';
-            document.getElementById('importResult').innerHTML = 'Поле очищено';
-        }
-
-        // ===== СБРОС ФОРМЫ =====
-        function resetForm() {
-            document.getElementById('userName').value = 'Иван Петров';
-            document.getElementById('age').value = '25';
-            document.getElementById('isStudent').checked = true;
-            document.getElementById('city').value = 'Москва';
-            document.getElementById('group').value = 'Разработчики';
-            document.getElementById('email').value = 'ivan@mail.ru';
-            document.getElementById('tags').value = 'js, json, html';
-            document.getElementById('addProblematic').checked = false;
-            
-            buildObject();
-        }
-
-        // ===== ПРИМЕР ДАННЫХ =====
-        function fillExample() {
-            document.getElementById('userName').value = 'Анна Смирнова';
-            document.getElementById('age').value = '28';
-            document.getElementById('isStudent').checked = false;
-            document.getElementById('city').value = 'Санкт-Петербург';
-            document.getElementById('group').value = 'Маркетинг';
-            document.getElementById('email').value = 'anna@mail.ru';
-            document.getElementById('tags').value = 'маркетинг, smm, реклама';
-            document.getElementById('addProblematic').checked = true;
-            
-            buildObject();
-        }
-
-        // ===== ИНИЦИАЛИЗАЦИЯ =====
-        window.onload = function() {
-            buildObject();
-        };
-    </script>
+    
+    <script src="script.js"></script>
 </body>
-
 </html>
