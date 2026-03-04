@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 50px;
+}
+
+.parentOne {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parentOne > .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-color: rgb(255, 0, 0);
+    min-height: 50px;
+}
+
+.parentOne > .div2 { 
+    grid-area: 1 / 2 / 2 / 4; 
+    background-color: rgb(255, 0, 0);
+    min-height: 50px;
+}
+
+.parentOne > .div3 { 
+    grid-area: 2 / 1 / 3 / 3; 
+    background-color: rgb(255, 0, 0);
+    min-height: 50px;
+}
+
+.parentOne > .div4 { 
+    grid-area: 2 / 3 / 3 / 4; 
+    background-color: rgb(255, 0, 0);
+    min-height: 50px;
+}
+
+.parentOne > .div5 { 
+    grid-area: 3 / 1 / 4 / 4; 
+    background-color: rgb(255, 0, 0);
+    min-height: 50px;
+}
+
+
+.parentTwo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parentTwo > .div1 { 
+    grid-area: 1 / 1 / 3 / 2; 
+    background-color: rgb(0, 0, 255);
+    min-height: 50px;
+}
+
+.parentTwo > .div2 { 
+    grid-area: 2 / 2 / 3 / 3; 
+    background-color: rgb(0, 0, 255);
+    min-height: 50px;
+}
+
+.parentTwo > .div3 { 
+    grid-area: 2 / 3 / 3 / 4; 
+    background-color: rgb(0, 0, 255);
+    min-height: 50px;
+}
+
+.parentTwo > .div4 { 
+    grid-area: 3 / 1 / 4 / 4; 
+    background-color: rgb(0, 0, 255);
+    min-height: 50px;
+}
+
+.parentTwo > .div5 { 
+    grid-area: 1 / 2 / 2 / 4; 
+    background-color: rgb(0, 0, 255);
+    min-height: 50px;
+}
+
+.parentThree {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parentThree > .div1 { 
+    grid-area: 1 / 1 / 2 / 3; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+.parentThree > .div2 { 
+    grid-area: 1 / 3 / 2 / 4; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+.parentThree > .div3 { 
+    grid-area: 2 / 1 / 3 / 2; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+.parentThree > .div4 { 
+    grid-area: 2 / 2 / 3 / 4; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+.parentThree > .div5 { 
+    grid-area: 3 / 1 / 4 / 3; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+.parentThree > .div6 { 
+    grid-area: 3 / 3 / 4 / 4; 
+    background-color: rgb(0, 0, 0);
+    min-height: 50px;
+}
+
+
+.parentFour {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parentFour > .div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFour > .div2 { 
+    grid-area: 2 / 1 / 3 / 2; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFour > .div3 { 
+    grid-area: 1 / 2 / 3 / 4; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFour > .div4 { 
+    grid-area: 3 / 1 / 4 / 2; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFour > .div5 { 
+    grid-area: 3 / 2 / 4 / 3; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFour > .div6 { 
+    grid-area: 3 / 3 / 4 / 4; 
+    background-color: rgb(255, 165, 0);
+}
+
+.parentFive {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parentFive > .div1 { 
+    grid-area: 1 / 1 / 3 / 3; 
+    background-color: rgb(255, 255, 0);
+    min-height: 50px;
+}
+
+.parentFive > .div2 { 
+    grid-area: 1 / 3 / 2 / 4; 
+    background-color: rgb(255, 255, 0);
+    min-height: 50px;
+}
+
+.parentFive > .div3 { 
+    grid-area: 2 / 3 / 3 / 4; 
+    background-color: rgb(255, 255, 0);
+    min-height: 50px;
+}
+
+.parentFive > .div4 { 
+    grid-area: 3 / 2 / 4 / 4; 
+    background-color: rgb(255, 255, 0);
+    min-height: 50px;
+}
+
+.parentFive > .div5 { 
+    grid-area: 3 / 1 / 4 / 2; 
+    background-color: rgb(255, 255, 0);
+    min-height: 50px;
+}
+
+.text {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+}
